@@ -1,9 +1,10 @@
 pub mod old_day1;
 pub mod day1;
+pub mod day2;
 
 use std::fs;
 
-use day1::{first, second};
+use day2::{first, second};
 
 fn main() {
     first();
