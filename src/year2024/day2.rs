@@ -1,9 +1,7 @@
 pub use crate::read_file;
 
-pub fn first() {
-    let content = read_file("resources/2024-2.txt".to_string());
-
-    let lines = content.split("\n");
+pub fn first(input: &str) -> i32 {
+    let lines = input.split("\n");
 
     let mut total: i32 = 0;
 
@@ -15,13 +13,11 @@ pub fn first() {
         }
     }
 
-    println!("{}", total)
+    total
 }
 
-pub fn second() {
-    let content = read_file("resources/2024-2.txt".to_string());
-
-    let lines = content.split("\n");
+pub fn second(input: &str) -> i32 {
+    let lines = input.split("\n");
 
     let mut total: i32 = 0;
 
@@ -33,8 +29,10 @@ pub fn second() {
         } else {
             for x in 0..numbers.len() {
                 let new_numbers: Vec<i32> = numbers
-                    .iter().enumerate()
-                    .filter(|(index, _)| *index != x).map(|(_, number)| number)
+                    .iter()
+                    .enumerate()
+                    .filter(|(index, _)| *index != x)
+                    .map(|(_, number)| number)
                     .cloned()
                     .collect();
                 if is_safe(&new_numbers) {
@@ -45,7 +43,7 @@ pub fn second() {
         }
     }
 
-    println!("{}", total)
+    total
 }
 
 fn is_safe(numbers: &[i32]) -> bool {
@@ -73,4 +71,44 @@ fn is_safe(numbers: &[i32]) -> bool {
         }
     }
     return valid;
+}
+
+#[test]
+fn test_first() {
+    assert_eq!(
+        2,
+        first(
+            "7 6 4 2 1
+1 2 7 8 9
+9 7 6 2 1
+1 3 2 4 5
+8 6 4 4 1
+1 3 6 7 9"
+        )
+    );
+
+    assert_eq!(
+        390,
+        first(read_file("resources/2024-2.txt".to_string()).as_str())
+    );
+}
+
+#[test]
+fn test_second() {
+    assert_eq!(
+        4,
+        second(
+            "7 6 4 2 1
+1 2 7 8 9
+9 7 6 2 1
+1 3 2 4 5
+8 6 4 4 1
+1 3 6 7 9"
+        )
+    );
+
+    assert_eq!(
+        439,
+        second(read_file("resources/2024-2.txt".to_string()).as_str())
+    );
 }

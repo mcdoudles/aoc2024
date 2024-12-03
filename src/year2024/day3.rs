@@ -1,5 +1,7 @@
 use regex::Regex;
 
+pub use crate::read_file;
+
 pub fn first(input: &str) -> i32 {
     let re = Regex::new(r"mul\(\d+,\d+\)").unwrap();
 
@@ -47,7 +49,12 @@ fn test_first() {
     assert_eq!(
         161,
         first("xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))")
-    )
+    );
+
+    assert_eq!(
+        188192787,
+        first(read_file("resources/2024-3.txt".to_string()).as_str())
+    );
 }
 
 #[test]
@@ -55,5 +62,10 @@ fn test_second() {
     assert_eq!(
         48,
         second("xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))")
-    )
+    );
+
+    assert_eq!(
+        113965544,
+        second(read_file("resources/2024-3.txt".to_string()).as_str())
+    );
 }

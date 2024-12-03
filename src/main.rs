@@ -1,17 +1,10 @@
 pub mod old_day1;
-pub mod day1;
-pub mod day2;
-pub mod day3;
+
+pub mod year2024;
 
 use std::fs;
-use day3::{first, second};
 
 fn main() {
-    let binding = read_file("resources/2024-3.txt".to_string());
-    let content = binding.as_str();
-
-    println!("{}", first(content));
-    println!("{}", second(content));
 }
 
 pub fn read_file(filename: String) -> String {
