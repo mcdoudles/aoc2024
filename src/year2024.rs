@@ -1,10 +1,12 @@
 pub mod day1;
 pub mod day2;
 pub mod day3;
-
-pub use crate::read_file;
+pub mod day4;
+pub mod day5;
 
 /// This is just something to pasta...
+pub use crate::read_file;
+
 pub fn first(_input: &str) -> i32 {
     0
 }

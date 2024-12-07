@@ -5,3 +5,4 @@ edition = "2021"
 
 [dependencies]
 regex = { git = "https://github.com/rust-lang/regex.git" }
+fancy-regex = { git = "https://github.com/fancy-regex/fancy-regex" }
