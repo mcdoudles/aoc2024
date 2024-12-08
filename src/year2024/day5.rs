@@ -187,7 +187,7 @@ fn test_second() {
     );
 
     assert_eq!(
-        0,
+        4480,
         second(read_file("resources/2024-5.txt".to_string()).as_str())
     );
 }
